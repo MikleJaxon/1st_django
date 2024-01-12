@@ -10,7 +10,7 @@ class User(models.Model):
         return self.first_name
 
 class Product(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length = 100)
     price = models.IntegerField()
     description = models.CharField(max_length=255)
     
