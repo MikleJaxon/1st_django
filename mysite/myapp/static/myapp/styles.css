@@ -20,6 +20,14 @@
   /* 2 */
 }
 
+.text-xl {
+  font-size: 1.25rem/* 20px */;
+  line-height: 1.75rem/* 28px */;
+}
+.flex {
+  display: flex;
+}
+
 ::before,
 ::after {
   --tw-content: '';
@@ -288,6 +296,14 @@ Correct the cursor style of increment and decrement buttons in Safari.
   /* 1 */
   outline-offset: -2px;
   /* 2 */
+}
+
+.h-8{
+  height: 2rem;
+}
+
+.w-8{
+  width: 2rem;;
 }
 
 /*
