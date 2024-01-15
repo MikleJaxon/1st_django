@@ -9,6 +9,7 @@
       <p class="mt-5">{{ item.name }}</p>
       <p class="mt-5 text-green-500"> ${{ item.price | intcomma }}</p>
       <p class="mt-5 text-gray-500 text-base">{{ item.description }}</p>
+      <button><a href="{% url 'myapp:update_item' item.id %}">Update item</a></button>
     </div>
   </div>
 

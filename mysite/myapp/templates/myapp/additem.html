@@ -1,9 +1,15 @@
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
+{% extends "myapp/base.html" %}
 
-  <input type="text" placeholder="Name" name="name" id="name">
-  <input type="text" placeholder="Price" name="price" id="price">
-  <input type="text" placeholder="Description" name="description" id="description">
-  <input type="file" accept="image/*" name="upload" id="upload">
-  <button type="submit" name="Add item" value="Add product">Add product</button>
-</form>
+{%block content%}
+<form class="w-1/3 bg-white  m-10 px-8 py-8" method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+
+   <input class="mt-10 block ml-10 border rounded text-gray-500" type="text" placeholder="Name" name="name" id="name">
+   <input class="mt-10 block ml-10" type="text" placeholder="Price" name="price" id="price">
+   <input class="mt-10 block ml-10" type="text" placeholder="Description" name="description" id="description">
+   <input class="mt-10 block ml-10"  type="file" accept="image/*" name="upload" id="upload">
+   <button class="mt-10 ml-10" type="submit" name="Add item" value="Add product">Add product</button>
+ </form>
+
+ {%endblock content%}   
+

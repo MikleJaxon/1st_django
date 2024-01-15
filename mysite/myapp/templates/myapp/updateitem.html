@@ -1,0 +1,17 @@
+{% extends "myapp/base.html" %}
+
+{%block content%}
+<h1 class='mt-10 ml-10'>Update Item</h1>
+<form class="w-1/3 bg-white  m-10 px-8 py-8" method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+
+   <input class="mt-10 block ml-10 border rounded text-gray-900" type="text" value="{{item.name}}" placeholder="Name" name="name" id="name">
+   <input class="mt-10 block ml-10 border rounded text-gray-900" type="text" value="{{item.price}}" placeholder="Price" name="price" id="price">
+   <input class="mt-10 block ml-10 border rounded text-gray-900" type="text" value="{{item.description}}" placeholder="Description" name="description" id="description">
+   <img class="w-20 h-20 mt-10 ml-10" src="{{ item.image.url }}" alt="">
+   <input class="mt-10 block ml-10"  type="file" accept="image/*" name="upload" id="upload">
+   <button class="mt-10 ml-10" type="submit" name="Add item" value="Add product">Update product</button>
+ </form>
+
+ {%endblock content%}   
+
