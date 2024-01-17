@@ -44,11 +44,13 @@ def update_item(request, prod_id):
     }
     
     return render(request, "myapp/updateitem.html", context)
-    
 
-def userinfo(request):
-    users = User.objects.all()
+def delete_item(request, prod_id):
+    item = Product.objects.get(id = prod_id)
+    if request.method == "POST":
+        item.delete()
+        return redirect("/myapp/")
     context = {
-        'users':users
+        'item':item
     }
-    return render(request, "myapp/userinfo.html", context)
+    return render(request, "myapp/deleteitem.html", context)

@@ -711,6 +711,14 @@ menu {
   width: 5rem/* 80px */;
 }
 
+.w-72 {
+  width: 18rem/* 288px */;
+}
+
+.h-72 {
+  height: 18rem/* 288px */;
+}
+
 .h-20 {
   height: 5rem/* 80px */;
 }

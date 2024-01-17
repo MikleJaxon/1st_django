@@ -1,0 +1,20 @@
+ 
+
+{% extends "myapp/base.html" %}
+
+{%block content%}
+<h1>Delete item</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div>
+      <label for="">Точно удалить {{item.name}} ?</label>
+      <label for="">{{item.description}}</label>
+      <img class="w-72 h-72" src="{{item.image.url}}" alt="">
+    </div>
+    <input type="submit" value="Подтвердить">
+    <a href="{% url 'myapp:index' %}">Cancel</a>
+  </form>
+
+ {%endblock content%}   
+
+
