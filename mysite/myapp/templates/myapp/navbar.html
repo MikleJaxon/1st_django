@@ -12,6 +12,15 @@
             <a href="#" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500">Home</a>
             <a href="#" class="py-4 px-2 text-gray-500 font-semibold">About</a>
             <a href="#" class="py-4 px-2 text-gray-500 font-semibold">Contacts</a>
+            {% if user.is_authenticated %}
+                <form method="post" action="{% url 'users:logout' %}">
+                  {% csrf_token %}
+                  <button class="py-4 px-2 text-gray-500 font-semibold" type="submit">logout</button>
+                </form>  
+              
+              {% else %}
+              <a class="py-4 px-2 text-gray-500 font-semibold" href="{% url 'users:login' %}">login</a>
+            {% endif %}
            </div>
          </div>
        </div>
