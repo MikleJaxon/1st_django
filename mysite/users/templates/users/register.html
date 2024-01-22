@@ -1,1 +1,26 @@
-{{ form }}
+{% extends "myapp/base.html" %}
+
+
+
+{% block content %}
+<div class="container py-5">
+<h1 class="text-2xl m-10 font-bold">Регистрация</h1>
+  <form class="w-2/5 shadow-md m-10 rounded px-8 pt-6 pb-8 mb-4" method="post"> 
+    {% csrf_token %} 
+    
+    <div class="mb-2 ">
+      <label class="block text-gray-500 text-sm font-bold mb-2 mt-5">Username</label>
+      <p class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-500 leading-tight">{{ form.username }}</p>
+      <label class="block text-gray-500 text-sm font-bold mb-2 mt-5 ">Email</label>
+      <p class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-500 leading-tight">{{ form.email }}</p>
+      <label class="block text-gray-500 text-sm font-bold mb-2 mt-5">Password</label>
+      <p class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-500 leading-tight">{{ form.password1 }}</p>
+      <label class="block text-gray-500 text-sm font-bold mb-2 mt-5">Confirm password</label>
+      <p class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-500 leading-tight">{{ form.password2 }}</p>
+    </div>
+    <button class="text-white py-2 px-5" type="submit" style="background-color: rgb(34, 197, 94);">Register</button>
+    <div></div>
+  </form>
+</div>
+
+{% endblock content %}
