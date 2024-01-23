@@ -4,22 +4,27 @@
       <div class="flex justify-between">
          <div class="flex space-x-7">
            <div>
-            <a href="#" class="flex items-center px-2 py-4">
+            <a href="{% url 'myapp:index' %}" class="flex items-center px-2 py-4">
              <img class="h-8 w-8" src="{% static 'myapp/images/shopping-cart.png' %}" />
              <span class="text-gray-500 text-xl font-semibold">Phone shop</span> </a>
            </div>
            <div class="items-center flex space-x-1">
-            <a href="#" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500">Home</a>
+            <a href="{% url 'myapp:index' %}" class="py-4 px-2 text-gray-500 font-semibold border-b-4 border-green-500">Home</a>
             <a href="#" class="py-4 px-2 text-gray-500 font-semibold">About</a>
             <a href="#" class="py-4 px-2 text-gray-500 font-semibold">Contacts</a>
             {% if user.is_authenticated %}
                 <form method="post" action="{% url 'users:logout' %}">
                   {% csrf_token %}
                   <button class="py-4 px-2 text-gray-500 font-semibold" type="submit">logout</button>
-                </form>  
+                  
+                </form>
+                <a class="py-4 px-2 text-gray-500 font-semibold" href="{% url 'users:profile' %}">Profile</a>  
               
               {% else %}
-              <a class="py-4 px-2 text-gray-500 font-semibold" href="{% url 'users:login' %}">login</a>
+              <form method="post" action="{% url 'users:login' %}">
+                {% csrf_token %}
+                <button class="py-4 px-2 text-gray-500 font-semibold" type="submit">login</button>
+              </form> 
             {% endif %}
            </div>
          </div>

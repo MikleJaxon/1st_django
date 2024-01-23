@@ -54,3 +54,5 @@ def delete_item(request, prod_id):
         'item':item
     }
     return render(request, "myapp/deleteitem.html", context)
+
+
