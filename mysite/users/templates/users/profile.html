@@ -2,5 +2,33 @@
 
 {% block content %}
 
-    <h1>Profile</h1>
+  {% if user.profile %}
+  <div class="grid p-10 grid-cols-1 lg:grid-cols-3 sm:grid-cols-1">
+    <div class="rounded shadow-lg">
+      <div>
+        {% if user.profile.image %}
+        <img class="" src="{{ user.profile.image.url }}">
+        {% endif %}
+      </div>
+      <h1 class="font-bold text-xl m-2" >{{ user.username }}</h1>
+      <h1 class="font-bold text-xl m-2" >{{ user.profile.contact_number }}</h1>
+      
+    </div>
+  </div>
+  {% else %}
+  <h1 class='mt-10 ml-10'>Создать профиль</h1>
+  <form class="w-1/3 bg-white  m-10 px-8 py-8" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-2">
+      <label class="block text-gray-700 text-sm font-bold mb-2">Upload profile image </label>
+      <input class="block mt-4" type="file" accept="image/*" name="upload" id="upload" required>
+      <label class="block text-gray-700 text-sm font-bold mt-5 mb-2">Contact number</label>
+      <input class="block mt-4" type="text"  name="number" id="number">
+  </div>
+    <button class="bg-green-500 px-5 py-2" type="submit">Create Profile</button>
+  </form>
+  {% endif %}
+
+  
+
 {% endblock content %}
