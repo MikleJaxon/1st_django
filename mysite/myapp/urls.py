@@ -1,12 +1,16 @@
 from django.urls import path
-from myapp.views import index,indexItem,add_item, update_item, delete_item
+from myapp.views import add_item, update_item, delete_item, ProductListView, detailListView
 
 app_name = "myapp"
 
 urlpatterns = [
-    path('', index, name = 'index'),
+    #path('', index, name = 'index'),
     
-    path('<int:prod_id>/', indexItem, name = "detail"),
+    path('', ProductListView.as_view(), name = 'index'),
+
+    #path('<int:prod_id>/', indexItem, name = "detail"),
+
+    path('<int:pk>/', detailListView.as_view(), name = "detail"),
 
     
     path('additem/', add_item, name= "add_item"),
