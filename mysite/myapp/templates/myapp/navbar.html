@@ -25,6 +25,10 @@
                 {% csrf_token %}
                 <button class="py-4 px-2 text-gray-500 font-semibold" type="submit">login</button>
               </form> 
+              <form method="post" action="{% url 'users:register' %}">
+                {% csrf_token %}
+                <button class="py-4 px-2 text-gray-500 font-semibold" type="submit">register</button>
+              </form> 
             {% endif %}
            </div>
          </div>
