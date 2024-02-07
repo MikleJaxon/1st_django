@@ -1,5 +1,5 @@
 from django.urls import path
-from myapp.views import add_item, update_item, delete_item, ProductListView, detailListView
+from myapp.views import add_item, update_item, ProductListView, detailListView, ProductDeleteView
 
 app_name = "myapp"
 
@@ -16,8 +16,10 @@ urlpatterns = [
     path('additem/', add_item, name= "add_item"),
     
     path('updateitem/<int:prod_id>/', update_item, name= "update_item"),
+
+    path('deleteitem/<int:pk>/', ProductDeleteView.as_view(), name= "delete_item"),
     
-    path('deleteitem/<int:prod_id>/', delete_item, name= "delete_item"),
+    # path('deleteitem/<int:prod_id>/', delete_item, name= "delete_item"),
     
 
     

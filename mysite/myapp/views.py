@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import DeleteView
+from django.urls import reverse_lazy
 
 
 from .models import Product
@@ -61,14 +63,19 @@ def update_item(request, prod_id):
     
     return render(request, "myapp/updateitem.html", context)
 
-def delete_item(request, prod_id):
-    item = Product.objects.get(id = prod_id)
-    if request.method == "POST":
-        item.delete()
-        return redirect("/myapp/")
-    context = {
-        'item':item
-    }
-    return render(request, "myapp/deleteitem.html", context)
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy("myapp:index")    
+
+# def delete_item(request, prod_id):
+#     item = Product.objects.get(id = prod_id)
+#     if request.method == "POST":
+#         item.delete()
+#         return redirect("/myapp/")
+#     context = {
+#         'item':item
+#     }
+#     return render(request, "myapp/deleteitem.html", context)
 
 
