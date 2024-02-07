@@ -48,6 +48,7 @@ def add_item(request):
         item.save()
     return render(request, "myapp/additem.html")
 
+@login_required
 def update_item(request, prod_id):
     item = Product.objects.get(id = prod_id)
     if request.method == "POST":
