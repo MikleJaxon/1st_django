@@ -4,11 +4,11 @@ from myapp.views import add_item, update_item, ProductListView, detailListView, 
 app_name = "myapp"
 
 urlpatterns = [
-    #path('', index, name = 'index'),
+    # path('', index, name = 'index'),
     
     path('', ProductListView.as_view(), name = 'index'),
 
-    #path('<int:prod_id>/', indexItem, name = "detail"),
+    # path('<int:prod_id>/', indexItem, name = "detail"),
 
     path('<int:pk>/', detailListView.as_view(), name = "detail"),
 
