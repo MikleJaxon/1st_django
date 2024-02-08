@@ -1,12 +1,12 @@
 from django.urls import path
-from myapp.views import add_item, update_item, ProductListView, detailListView, ProductDeleteView
+from myapp.views import index, add_item, update_item, ProductListView, detailListView, ProductDeleteView
 
 app_name = "myapp"
 
 urlpatterns = [
-    # path('', index, name = 'index'),
+    path('', index, name = 'index'),
     
-    path('', ProductListView.as_view(), name = 'index'),
+    # path('', ProductListView.as_view(), name = 'index'),
 
     # path('<int:prod_id>/', indexItem, name = "detail"),
 
